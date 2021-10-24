@@ -38,7 +38,7 @@ async def predict_api(file: UploadFile = File(...)):
     output = np.expand_dims(output, 0)
     predictions = [model.predict(output)]
     label = np.argmax(predictions)
-    return label
+    return f'{label}'
 
 if __name__ == "__main__":
     uvicorn.run(app, debug=True)
